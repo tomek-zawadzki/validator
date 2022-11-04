@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(70, 74, 254);
+  background-color: rgb(113, 116, 248);
   font-family: sans-serif;
 }
 
@@ -37,12 +37,21 @@ label {
   margin-bottom: 6px;
 }
 
-label:first-child {
-  margin-top: 30px;
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.input-box:first-child {
+  margin-top: 32px;
+}
+
+.input-box:last-child {
+  margin-bottom: 24px;
 }
 
 input {
-  margin-bottom: 24px;
   height: 1.8rem;
   padding: 4px 4px;
 }
@@ -54,7 +63,7 @@ input {
 .btn {
   padding: 8px;
   width: 100px;
-  background-color: rgb(70, 74, 254);
+  background-color: rgb(113, 116, 248);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -66,4 +75,13 @@ input {
 
 .btn:hover {
   opacity: 0.9;
+}
+
+.prompter {
+  color: rgb(113, 116, 248);
+  font-weight: 100;
+  font-size: 0.8rem;
+  margin-top: 2px;
+  margin-left: 8px;
+  height: 0;
 }
