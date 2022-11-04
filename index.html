@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Walidator</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="heading">Zarejestruj się!</h1>
+      <form>
+        <label for="user">Nazwa uytkownika:</label>
+        <input
+          class="input user"
+          type="text"
+          name="user"
+          id="user"
+          placeholder="Podaj nazwę uytkownika"
+        />
+        <label for="password">Hasło:</label>
+        <input
+          class="input password"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Podaj hasło"
+        />
+        <label for="repeat-password">Powtórz hasło</label>
+        <input
+          class="repeat-password"
+          type="password"
+          name="repeat-password"
+          id="repeat-password"
+          placeholder="Powtórz hasło"
+        />
+        <label for="mail">Adres e-mail</label>
+        <input
+          class="mail"
+          type="email"
+          name="email"
+          id="mail"
+          placeholder="Podaj adres mailowy"
+        />
+      </form>
+      <div class="buttons">
+        <button class="btn clear">Wyczyść</button>
+        <button class="btn send">Wyślij</button>
+      </div>
+    </main>
+  </body>
+</html>
