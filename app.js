@@ -8,43 +8,6 @@ const imputBox = document.querySelector(".input-box");
 
 const inputArr = [userName, password, repeatPassword, mail];
 
-/*
-sendBtn.addEventListener("click", () => {
-  if (userName.value.length > 4) {
-    console.log("ok");
-  } else {
-    const p = document.createElement("p");
-    p.innerText = "Nazwa użytkownika składa się z min. 3 znaków.";
-    p.classList.add("prompter");
-    imputBox.appendChild(p);
-  }
-  if (password.value.length > 8) {
-    console.log("ok");
-  } else {
-    const p = document.createElement("p");
-    p.innerText = "Hasło składa się z min. 8 znaków";
-    p.classList.add("prompter");
-    imputBox.appendChild(p);
-  }
-  if (repeatPassword.value !== password.value) {
-    console.log("ok");
-  } else {
-    const p = document.createElement("p");
-    p.innerText = "Hasła się nie zgadzają!";
-    p.classList.add("prompter");
-    imputBox.appendChild(p);
-  }
-  // if (mail.value === ) {
-  //   console.log("ok");
-  // } else {
-  //   const p = document.createElement("p");
-  //   p.innerText = "Nazwa użytkownika składa się z min. 3 znaków.";
-  //   p.classList.add("prompter");
-  //   imputBox.appendChild(p);
-  // }
-});
-*/
-
 const showError = (input, msg) => {
   const formBox = input.parentElement;
   const errorMsg = formBox.querySelector(".error-text");
@@ -68,10 +31,31 @@ const checkForm = (input) => {
   });
 };
 
+const checkLength = (input, min) => {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${input.previousElementSibling.innerText.slice(
+        0,
+        -1
+      )} składa się z min. ${min} znaków`
+    );
+  }
+};
+
+const checkPassword = (pass1, pass2) => {
+  if (pass1.value !== pass2.value) {
+    showError(pass2, "Hasła do siebie nie pasują");
+  }
+};
+
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   checkForm(inputArr);
+  checkLength(userName, 3);
+  checkLength(password, 8);
+  checkPassword(password, repeatPassword);
 });
 
 clearBtn.addEventListener("click", (e) => {
