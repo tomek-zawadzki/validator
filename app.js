@@ -6,6 +6,8 @@ const clearBtn = document.querySelector(".clear");
 const sendBtn = document.querySelector(".send");
 const imputBox = document.querySelector(".input-box");
 
+const inputArr = [userName, password, repeatPassword, mail];
+
 /*
 sendBtn.addEventListener("click", () => {
   if (userName.value.length > 4) {
@@ -43,10 +45,39 @@ sendBtn.addEventListener("click", () => {
 });
 */
 
+const showError = (input, msg) => {
+  const formBox = input.parentElement;
+  const errorMsg = formBox.querySelector(".error-text");
+
+  formBox.classList.add("error");
+  errorMsg.textContent = msg;
+};
+
+const clearError = (input) => {
+  const formBox = input.parentElement;
+  formBox.classList.remove("error");
+};
+
+const checkForm = (input) => {
+  input.forEach((el) => {
+    if (el.value === "") {
+      showError(el, el.placeholder);
+    } else {
+      clearError(el);
+    }
+  });
+};
+
+sendBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  checkForm(inputArr);
+});
+
 clearBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  [userName, password, repeatPassword, mail].forEach((el) => {
+  inputArr.forEach((el) => {
     el.value = "";
   });
 });
