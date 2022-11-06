@@ -4,7 +4,9 @@ const repeatPassword = document.querySelector(".repeat-password");
 const mail = document.querySelector(".mail");
 const clearBtn = document.querySelector(".clear");
 const sendBtn = document.querySelector(".send");
+const closeBtn = document.querySelector(".close");
 const imputBox = document.querySelector(".input-box");
+const popup = document.querySelector(".popup");
 
 const inputArr = [userName, password, repeatPassword, mail];
 
@@ -59,6 +61,21 @@ const checkMail = (mail) => {
   }
 };
 
+const checkErrors = () => {
+  const allInputs = document.querySelectorAll("input-box");
+  let errorCount = 0;
+
+  allInputs.forEach((el) => {
+    if (el.classList.contains("error")) {
+      errorCount++;
+    }
+  });
+
+  if (errorCount === 0) {
+    popup.classList.add("show-popup");
+  }
+};
+
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -67,6 +84,7 @@ sendBtn.addEventListener("click", (e) => {
   checkLength(password, 8);
   checkPassword(password, repeatPassword);
   checkMail(mail);
+  checkErrors();
 });
 
 clearBtn.addEventListener("click", (e) => {
@@ -74,5 +92,10 @@ clearBtn.addEventListener("click", (e) => {
 
   inputArr.forEach((el) => {
     el.value = "";
+    clearError(el);
   });
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("show-popup");
 });

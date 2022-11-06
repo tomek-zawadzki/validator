@@ -95,6 +95,23 @@ label {
   visibility: visible;
 }
 
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: -300px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 600px;
+  height: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  border: 2px solid black;
+  transition: top 0.5s;
+}
+
 .popup p {
   font-size: 28px;
 }
